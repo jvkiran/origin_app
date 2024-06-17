@@ -1,0 +1,16 @@
+<%= render 'tracker' %>
+<textarea readonly class='tracker' id='tracker_text'> 
+    <%= h "<iframe src='#{widget_tracker_page_url}' width='300' height='150' style='position: absolute; bottom: 4%;'></iframe>" %>
+</textarea>
+<button onclick="copy_tracker_code()">Copy</button>
+
+<script type='text/javascript'>
+    function copy_tracker_code() {
+        var copyText = document.getElementById("tracker_text");
+
+        copyText.select();
+        copyText.setSelectionRange(0, 99999);
+        navigator.clipboard.writeText(copyText.value);
+        alert("Copied the text: " + copyText.value);
+    }
+</script>

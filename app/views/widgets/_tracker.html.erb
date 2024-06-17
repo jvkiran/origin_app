@@ -1,0 +1,36 @@
+
+<div>
+    <%= form_with url: widget_tracker_url, method: :post, id: 'tracker_widget' do |form| %>
+        <% tracker.errors.full_messages if tracker.errors.any? %>
+        <% if tracker.errors.full_messages.any? %>
+            <ul>
+                <% tracker.errors.full_messages.each do |error_message| %>
+                    <li style="color: red;"><%= error_message %></li>
+                <% end %>
+            </ul>
+        <% end %>
+        <%= form.label :name, 'Enter Name:' %><br />
+        <%= form.text_field :name %>
+        <br />
+        <%= form.label :mobile, 'Enter Mobile Number:' %><br />
+        <%= form.text_field :mobile %>
+        <br />
+        <%= form.label :message, 'Enter Message:' %><br />
+        <%= form.text_field :message %>
+        <br />
+        <%= form.submit 'Send' %>
+    <% end %>
+</div>
+
+<script type='text/javascript'>
+   window.onload = function() {
+            // Access the parent window's document
+            const parentTitle = parent.document.title;
+            console.log('Parent Page Title:', parentTitle);
+
+            // You can also access other properties of the parent window if needed
+            // Example: 
+            const parentURL = parent.location.href;
+            console.log('Parent URL:', parentURL);
+        };
+</script>

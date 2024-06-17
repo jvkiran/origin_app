@@ -1,0 +1,5 @@
+<% if @tracker.valid? %>
+    <%= render 'tracker', local: { tracker: @tracker } %>
+<% else %>
+    <%= render 'thank_you', local: { tracker: @tracker } %>
+<% end %>
